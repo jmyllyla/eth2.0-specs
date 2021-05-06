@@ -11,12 +11,13 @@
 - [Constants](#constants)
   - [Participation flag indices](#participation-flag-indices)
   - [Incentivization weights](#incentivization-weights)
+  - [Domain types](#domain-types)
   - [Misc](#misc)
-- [Configuration](#configuration)
+- [Preset](#preset)
   - [Updated penalty values](#updated-penalty-values)
   - [Misc](#misc-1)
+- [Configuration](#configuration)
   - [Time parameters](#time-parameters)
-  - [Domain types](#domain-types)
 - [Containers](#containers)
   - [Modified containers](#modified-containers)
     - [`BeaconBlockBody`](#beaconblockbody)
@@ -94,13 +95,21 @@ Altair is the first beacon chain hard fork. Its main features are:
 
 *Note*: The sum of the weights equal `WEIGHT_DENOMINATOR`.
 
+### Domain types
+
+| Name | Value |
+| - | - |
+| `DOMAIN_SYNC_COMMITTEE` | `DomainType('0x07000000')` |
+| `DOMAIN_SYNC_COMMITTEE_SELECTION_PROOF` | `DomainType('0x08000000')` |
+| `DOMAIN_CONTRIBUTION_AND_PROOF` | `DomainType('0x09000000')` |
+
 ### Misc
 
 | Name | Value |
 | - | - |
 | `G2_POINT_AT_INFINITY` | `BLSSignature(b'\xc0' + b'\x00' * 95)` |
 
-## Configuration
+## Preset
 
 ### Updated penalty values
 
@@ -120,21 +129,15 @@ This patch updates a few configuration values to move penalty parameters toward 
 | - | - |
 | `SYNC_COMMITTEE_SIZE` | `uint64(2**10)` (= 1,024) |
 | `SYNC_PUBKEYS_PER_AGGREGATE` | `uint64(2**6)` (= 64) |
-| `INACTIVITY_SCORE_BIAS` | `uint64(4)` |
+
+## Configuration
 
 ### Time parameters
 
 | Name | Value | Unit | Duration |
 | - | - | :-: | :-: |
 | `EPOCHS_PER_SYNC_COMMITTEE_PERIOD` | `Epoch(2**8)` (= 256) | epochs | ~27 hours |
-
-### Domain types
-
-| Name | Value |
-| - | - |
-| `DOMAIN_SYNC_COMMITTEE` | `DomainType('0x07000000')` |
-| `DOMAIN_SYNC_COMMITTEE_SELECTION_PROOF` | `DomainType('0x08000000')` |
-| `DOMAIN_CONTRIBUTION_AND_PROOF` | `DomainType('0x09000000')` |
+| `INACTIVITY_SCORE_BIAS` | `uint64(4)` | score points per inactive epoch | equivalent of 25.6 minutes |
 
 ## Containers
 
