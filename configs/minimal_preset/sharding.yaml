@@ -1,23 +1,16 @@
-# Mainnet preset - Sharding
-
-# Fork
-# ---------------------------------------------------------------
-SHARDING_FORK_VERSION: 0x03000000
-# TBD, temporarily max uint64 value: 2**64 - 1
-SHARDING_FORK_EPOCH: 18446744073709551615
-
+# Minimal preset - Sharding
 
 # Beacon-chain
 # ---------------------------------------------------------------
 # Misc
-# 2**10 (= 1,024)
-MAX_SHARDS: 1024
-# 2**6 = 64
-INITIAL_ACTIVE_SHARDS: 64
+# [customized] reduced for testing
+MAX_SHARDS: 8
+# [customized] reduced for testing
+INITIAL_ACTIVE_SHARDS: 2
 # 2**3 (= 8)
 GASPRICE_ADJUSTMENT_COEFFICIENT: 8
-# 2**4 (= 16)
-MAX_SHARD_PROPOSER_SLASHINGS: 16
+# [customized] reduced for testing
+MAX_SHARD_PROPOSER_SLASHINGS: 4
 
 # Shard block configs
 # ---------------------------------------------------------------
@@ -38,8 +31,3 @@ MIN_GASPRICE: 8
 # ---------------------------------------------------------------
 # 2**8 (= 256) | epochs
 SHARD_COMMITTEE_PERIOD: 256
-
-# Signature domains
-# ---------------------------------------------------------------
-DOMAIN_SHARD_PROPOSER: 0x80000000
-DOMAIN_SHARD_COMMITTEE: 0x81000000

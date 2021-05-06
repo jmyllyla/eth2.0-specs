@@ -16,7 +16,6 @@
 - [Preset](#preset)
   - [Updated penalty values](#updated-penalty-values)
   - [Misc](#misc-1)
-- [Configuration](#configuration)
   - [Time parameters](#time-parameters)
 - [Containers](#containers)
   - [Modified containers](#modified-containers)
@@ -129,8 +128,6 @@ This patch updates a few configuration values to move penalty parameters toward 
 | - | - |
 | `SYNC_COMMITTEE_SIZE` | `uint64(2**10)` (= 1,024) |
 | `SYNC_PUBKEYS_PER_AGGREGATE` | `uint64(2**6)` (= 64) |
-
-## Configuration
 
 ### Time parameters
 
