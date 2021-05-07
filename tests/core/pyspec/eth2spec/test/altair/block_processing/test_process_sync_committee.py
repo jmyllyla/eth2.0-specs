@@ -18,7 +18,7 @@ from eth2spec.test.helpers.sync_committee import (
 from eth2spec.test.context import (
     expect_assertion_error,
     with_all_phases_except,
-    with_configs,
+    with_presets,
     spec_state_test,
     always_bls,
 )
@@ -198,7 +198,7 @@ def run_successful_sync_committee_test(spec, state, committee, committee_bits):
 
 
 @with_all_phases_except([PHASE0])
-@with_configs([MINIMAL], reason="to create nonduplicate committee")
+@with_presets([MINIMAL], reason="to create nonduplicate committee")
 @spec_state_test
 def test_sync_committee_rewards_nonduplicate_committee(spec, state):
     committee = get_committee_indices(spec, state, duplicates=False)
@@ -214,7 +214,7 @@ def test_sync_committee_rewards_nonduplicate_committee(spec, state):
 
 
 @with_all_phases_except([PHASE0])
-@with_configs([MAINNET], reason="to create duplicate committee")
+@with_presets([MAINNET], reason="to create duplicate committee")
 @spec_state_test
 def test_sync_committee_rewards_duplicate_committee(spec, state):
     committee = get_committee_indices(spec, state, duplicates=True)
@@ -290,7 +290,7 @@ def test_invalid_signature_past_block(spec, state):
 
 
 @with_all_phases_except([PHASE0])
-@with_configs([MINIMAL], reason="to produce different committee sets")
+@with_presets([MINIMAL], reason="to produce different committee sets")
 @spec_state_test
 @always_bls
 def test_invalid_signature_previous_committee(spec, state):
@@ -329,7 +329,7 @@ def test_invalid_signature_previous_committee(spec, state):
 @with_all_phases_except([PHASE0])
 @spec_state_test
 @always_bls
-@with_configs([MINIMAL], reason="too slow")
+@with_presets([MINIMAL], reason="too slow")
 def test_valid_signature_future_committee(spec, state):
     # NOTE: the `state` provided is at genesis and the process to select
     # sync committees currently returns the same committee for the first and second
