@@ -1,4 +1,4 @@
-from .typing import SpecForkName, ConfigName
+from .typing import SpecForkName, PresetBaseName
 
 
 #
@@ -25,7 +25,7 @@ FORKS_BEFORE_ALTAIR = (PHASE0, MERGE, SHARDING, CUSTODY_GAME, DAS)
 #
 # Config
 #
-MAINNET = ConfigName('mainnet')
-MINIMAL = ConfigName('minimal')
+MAINNET = PresetBaseName('mainnet')
+MINIMAL = PresetBaseName('minimal')
 
 ALL_CONFIGS = (MINIMAL, MAINNET)
